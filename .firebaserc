@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-6de38": {
+      "hosting": {
+        "Firebase": [
+          "fir-6de38"
+        ]
+      }
+    }
+  }
+}
