@@ -11,6 +11,8 @@ export class PeliculasComponent implements OnInit {
   // Creamos una variable para guardar películas
   peliculas: IPelicula[];
 
+  marcado = false;
+
   constructor(private peliculaService: PeliculaService) {}
 
   ngOnInit(): void {
@@ -18,5 +20,8 @@ export class PeliculasComponent implements OnInit {
     this.peliculaService.getAllPeliculas().subscribe((peliculas) => {
       this.peliculas = peliculas;
     });
+  }
+  marcar(peli: IPelicula) {
+    this.marcado = !this.marcado;
   }
 }
