@@ -13,6 +13,8 @@ export class PeliculasComponent implements OnInit {
 
   marcado = false;
 
+  arregloMarcado: number[];
+
   constructor(private peliculaService: PeliculaService) {}
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class PeliculasComponent implements OnInit {
       this.peliculas = peliculas;
     });
   }
-  marcar(peli: IPelicula) {
+  marcar(peli: IPelicula, num: number) {
     this.marcado = !this.marcado;
   }
 }
