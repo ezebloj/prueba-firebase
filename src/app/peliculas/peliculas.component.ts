@@ -11,9 +11,7 @@ export class PeliculasComponent implements OnInit {
   // Creamos una variable para guardar películas
   peliculas: IPelicula[];
 
-  marcado = false;
-
-  arregloMarcado: number[];
+  arregloMarcado: boolean[] = [];
 
   constructor(private peliculaService: PeliculaService) {}
 
@@ -23,7 +21,11 @@ export class PeliculasComponent implements OnInit {
       this.peliculas = peliculas;
     });
   }
-  marcar(peli: IPelicula, num: number) {
-    this.marcado = !this.marcado;
+  marcar(index: number) {
+    this.arregloMarcado[index] = true;
+  }
+
+  desmarcar(index: number) {
+    this.arregloMarcado[index] = false;
   }
 }
