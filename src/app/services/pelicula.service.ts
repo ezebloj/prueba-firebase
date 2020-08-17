@@ -17,4 +17,6 @@ export class PeliculaService {
   getAllPeliculas(): Observable<IPelicula[]> {
     return this.afs.collection<IPelicula>('peliculas').valueChanges();
   }
+
+  getPeliculaById() {}
 }
