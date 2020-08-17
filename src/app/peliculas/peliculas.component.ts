@@ -22,7 +22,7 @@ export class PeliculasComponent implements OnInit {
     });
   }
   marcar(index: number) {
-    this.arregloMarcado[index] = true;
+    this.arregloMarcado[index] = !this.arregloMarcado[index];
   }
 
   desmarcar(index: number) {
