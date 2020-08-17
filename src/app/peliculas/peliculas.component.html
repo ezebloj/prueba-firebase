@@ -1,22 +1,37 @@
-<div *ngFor="let peli of peliculas; let i = index">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title [ngClass]="{ tachado: arregloMarcado[i] == true }">{{
-        peli.nombre
-      }}</mat-card-title>
-      <mat-card-subtitle>{{ peli.genero }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="peli.imagen" alt="Photo of a Shiba Inu" />
-    <mat-card-content>
-      <a [href]="peli.link">Información</a>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="marcar(i)">MARCAR</button>
-      <button mat-button (click)="desmarcar(i)">DESMARCAR</button>
-    </mat-card-actions>
-  </mat-card>
-  <br /><br />
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <div fxLayout="column" *ngFor="let peli of peliculas; let i = index">
+    <div>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            class="cover-image"
+            [ngStyle]="{ 'background-image': 'url(' + peli.imagen + ')' }"
+          ></div>
+          <mat-card-title [ngClass]="{ tachado: arregloMarcado[i] == true }">{{
+            peli.nombre
+          }}</mat-card-title>
+          <mat-card-subtitle>{{ peli.genero }}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- otra opción: [alt]="'Photo of ' + peli.nombre" -->
+        <img
+          mat-card-image
+          [src]="peli.imagen"
+          alt="Photo of {{ peli.nombre }}"
+          class="imagen"
+        />
+        <mat-card-content>
+          <a mat-button [href]="peli.link" color="primary" target="_blank"
+            >Información</a
+          >
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="marcar(i)">MARCAR</button>
+          <button mat-button (click)="desmarcar(i)">DESMARCAR</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
 
 <!-- <div *ngFor="let peli of peliculas">

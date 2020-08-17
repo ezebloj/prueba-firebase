@@ -19,6 +19,9 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 
 import { PeliculaService } from './pelicula.service';
 
+// Flex-Layout
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [AppComponent, PeliculasComponent],
   imports: [
@@ -30,6 +33,7 @@ import { PeliculaService } from './pelicula.service';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    FlexLayoutModule,
   ],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
