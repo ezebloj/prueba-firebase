@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // AngularFirestore es el objeto que me permite interactuar con mi BD
 import { AngularFirestore } from '@angular/fire/firestore';
-import { IPelicula } from './Model/pelicula.model';
+import { IPelicula } from '../Model/pelicula.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

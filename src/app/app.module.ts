@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { PeliculasComponent } from './peliculas/peliculas.component';
 
-import { PeliculaService } from './pelicula.service';
+import { PeliculaService } from './services/pelicula.service';
 
 // Flex-Layout
 import { FlexLayoutModule } from '@angular/flex-layout';
