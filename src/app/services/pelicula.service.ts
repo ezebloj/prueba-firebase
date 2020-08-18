@@ -18,5 +18,17 @@ export class PeliculaService {
     return this.afs.collection<IPelicula>('peliculas').valueChanges();
   }
 
-  getPeliculaById() {}
+  getPeliculaById(id: string): Observable<IPelicula> {
+    return this.afs
+      .collection<IPelicula>('peliculas')
+      .doc<IPelicula>(id)
+      .valueChanges();
+  }
+
+  borrarPelicula(id: string) {
+    return this.afs
+      .collection<IPelicula>('peliculas')
+      .doc<IPelicula>(id)
+      .delete();
+  }
 }

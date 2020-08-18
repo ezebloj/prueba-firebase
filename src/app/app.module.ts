@@ -14,6 +14,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { PeliculasComponent } from './peliculas/peliculas.component';
 
@@ -21,9 +23,10 @@ import { PeliculaService } from './services/pelicula.service';
 
 // Flex-Layout
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
-  declarations: [AppComponent, PeliculasComponent],
+  declarations: [AppComponent, PeliculasComponent, FormularioComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +37,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     MatButtonModule,
     FlexLayoutModule,
+    MatDialogModule,
+    MatFormFieldModule,
   ],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
