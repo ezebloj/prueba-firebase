@@ -21,6 +21,8 @@ export class PeliculasComponent implements OnInit {
 
   id: string;
 
+  activarBoton: boolean;
+
   constructor(
     private peliculaService: PeliculaService,
     public dialog: MatDialog,
@@ -31,6 +33,7 @@ export class PeliculasComponent implements OnInit {
     // Usamos la función creada en el servicio a la cual nos suscribimos para inicializar el vector de películas
     this.peliculaService.getAllPeliculas().subscribe((peliculas) => {
       this.peliculas = peliculas;
+      this.activarBoton = true;
     });
   }
 

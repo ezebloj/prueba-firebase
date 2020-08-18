@@ -41,7 +41,7 @@
 <pre>{{ pelicula | json }}</pre>
 
 <br /><br />
-<div class="centrado">
+<div class="centrado" *ngIf="activarBoton">
   <button mat-raised-button color="primary" (click)="abrirFormulario()">
     Cargar película
   </button>
