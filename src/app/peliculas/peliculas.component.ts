@@ -56,6 +56,9 @@ export class PeliculasComponent implements OnInit {
   }
 
   borrarPelicula(id: string) {
+    // this.peliculaService.borrarPelicula(id).then((dato) => {
+    //   alert('me borré');
+    // });
     this.peliculaService.borrarPelicula(id);
   }
 

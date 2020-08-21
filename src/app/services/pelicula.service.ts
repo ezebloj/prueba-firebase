@@ -19,13 +19,14 @@ export class PeliculaService {
   }
 
   getPeliculaById(id: string): Observable<IPelicula> {
+    // return this.afs.doc<IPelicula>('peliculas/' + id).valueChanges();
     return this.afs
       .collection<IPelicula>('peliculas')
       .doc<IPelicula>(id)
       .valueChanges();
   }
 
-  borrarPelicula(id: string) {
+  borrarPelicula(id: string): Promise<void> {
     return this.afs
       .collection<IPelicula>('peliculas')
       .doc<IPelicula>(id)
