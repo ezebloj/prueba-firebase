@@ -36,6 +36,7 @@ export class PeliculaService {
   setPelicula(pelicula: IPelicula): Promise<void> {
     // creo un ID de Firebase
     const firestoreDocumentID = this.afs.createId();
+    pelicula.id = firestoreDocumentID;
     return this.afs
       .collection<IPelicula>('peliculas')
       .doc<IPelicula>(firestoreDocumentID)

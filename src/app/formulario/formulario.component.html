@@ -1,9 +1,10 @@
+<!-- fxFlexFill de Angular Flex-Layout reemplaza la clase alto-100 -->
 <div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
   <form
     fxLayout="column"
     fxLayoutAlign="center center"
     [formGroup]="peliculaForm"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="onSubmit(message.value, action.value)"
   >
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
@@ -17,22 +18,24 @@
         <mat-option value="Acción">Acción</mat-option>
         <mat-option value="Aventura">Aventura</mat-option>
         <mat-option value="Bélico">Bélico</mat-option>
-        <mat-option value="option">Chicos/Familia</mat-option>
-        <mat-option value="option">Ciencia ficción</mat-option>
-        <mat-option value="option">Comedia</mat-option>
-        <mat-option value="option">Comedia dramática</mat-option>
-        <mat-option value="option">Crimen</mat-option>
-        <mat-option value="option">Documental</mat-option>
-        <mat-option value="option">Épico</mat-option>
-        <mat-option value="option">Espionaje</mat-option>
-        <mat-option value="option">Fantasía</mat-option>
-        <mat-option value="option">Histórico</mat-option>
-        <mat-option value="option">Misterio</mat-option>
-        <mat-option value="option">Musical</mat-option>
-        <mat-option value="option">Terror</mat-option>
-        <mat-option value="option">Thriller</mat-option>
-        <mat-option value="option">Vanguardista / Experimental</mat-option>
-        <mat-option value="option">Western</mat-option>
+        <mat-option value="Chicos/Familia">Chicos/Familia</mat-option>
+        <mat-option value="Ciencia ficción">Ciencia ficción</mat-option>
+        <mat-option value="Comedia">Comedia</mat-option>
+        <mat-option value="Comedia dramática">Comedia dramática</mat-option>
+        <mat-option value="Crimen">Crimen</mat-option>
+        <mat-option value="Documental">Documental</mat-option>
+        <mat-option value="Épico">Épico</mat-option>
+        <mat-option value="Espionaje">Espionaje</mat-option>
+        <mat-option value="Fantasía">Fantasía</mat-option>
+        <mat-option value="Histórico">Histórico</mat-option>
+        <mat-option value="Misterio">Misterio</mat-option>
+        <mat-option value="Musical">Musical</mat-option>
+        <mat-option value="Terror">Terror</mat-option>
+        <mat-option value="Thriller">Thriller</mat-option>
+        <mat-option value="Vanguardista / Experimental"
+          >Vanguardista / Experimental</mat-option
+        >
+        <mat-option value="Western">Western</mat-option>
       </mat-select>
     </mat-form-field>
     <br />
@@ -49,3 +52,17 @@
     </div>
   </form>
 </div>
+
+<mat-form-field>
+  <mat-label>Message</mat-label>
+  <input matInput value="Película cargada" #message />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Action</mat-label>
+  <input matInput value="Aceptar" #action />
+</mat-form-field>
+
+<!-- <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">
+  Show snack-bar
+</button> -->

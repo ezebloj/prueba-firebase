@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from '../services/pelicula.service';
 import { IPelicula } from '../Model/pelicula.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formulario',
@@ -13,9 +14,12 @@ export class FormularioComponent implements OnInit {
 
   pelicula: IPelicula;
 
+  id: string;
+
   constructor(
     private fb: FormBuilder,
-    private peliculaService: PeliculaService
+    private peliculaService: PeliculaService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -26,11 +30,14 @@ export class FormularioComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(message: string, action: string) {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
     this.peliculaService.setPelicula(this.pelicula).then(() => {
-      alert('me guardé');
+      this._snackBar.open(message, action, {
+        duration: 2000,
+      });
+      // alert('me guardé');
     });
   }
 
