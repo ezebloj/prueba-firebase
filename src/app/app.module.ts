@@ -28,6 +28,8 @@ import { PeliculaService } from './services/pelicula.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormularioComponent } from './formulario/formulario.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent, PeliculasComponent, FormularioComponent],
   imports: [
@@ -44,6 +46,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [PeliculaService],
   bootstrap: [AppComponent],

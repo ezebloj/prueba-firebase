@@ -56,6 +56,7 @@ export class PeliculasComponent implements OnInit {
   }
 
   borrarPelicula(id: string) {
+    // // el () del dato puede estar vacío
     // this.peliculaService.borrarPelicula(id).then((dato) => {
     //   alert('me borré');
     // });

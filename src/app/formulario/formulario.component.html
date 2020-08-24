@@ -1,18 +1,51 @@
-<div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+<div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [formGroup]="peliculaForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Género</mat-label>
+
+      <mat-select formControlName="genero">
+        <mat-option value="Acción">Acción</mat-option>
+        <mat-option value="Aventura">Aventura</mat-option>
+        <mat-option value="Bélico">Bélico</mat-option>
+        <mat-option value="option">Chicos/Familia</mat-option>
+        <mat-option value="option">Ciencia ficción</mat-option>
+        <mat-option value="option">Comedia</mat-option>
+        <mat-option value="option">Comedia dramática</mat-option>
+        <mat-option value="option">Crimen</mat-option>
+        <mat-option value="option">Documental</mat-option>
+        <mat-option value="option">Épico</mat-option>
+        <mat-option value="option">Espionaje</mat-option>
+        <mat-option value="option">Fantasía</mat-option>
+        <mat-option value="option">Histórico</mat-option>
+        <mat-option value="option">Misterio</mat-option>
+        <mat-option value="option">Musical</mat-option>
+        <mat-option value="option">Terror</mat-option>
+        <mat-option value="option">Thriller</mat-option>
+        <mat-option value="option">Vanguardista / Experimental</mat-option>
+        <mat-option value="option">Western</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Link</mat-label>
+
+      <input matInput formControlName="link" />
+    </mat-form-field>
+    <br />
+    <div>
+      <button mat-raised-button type="submit" [disabled]="!peliculaForm.valid">
+        Cargar
+      </button>
+    </div>
+  </form>
 </div>

@@ -32,4 +32,13 @@ export class PeliculaService {
       .doc<IPelicula>(id)
       .delete();
   }
+
+  setPelicula(pelicula: IPelicula): Promise<void> {
+    // creo un ID de Firebase
+    const firestoreDocumentID = this.afs.createId();
+    return this.afs
+      .collection<IPelicula>('peliculas')
+      .doc<IPelicula>(firestoreDocumentID)
+      .set(pelicula);
+  }
 }
