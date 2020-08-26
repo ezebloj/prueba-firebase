@@ -35,7 +35,12 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, PeliculasComponent, FormularioComponent],
+  declarations: [
+    AppComponent,
+    PeliculasComponent,
+    FormularioComponent,
+    DetallePeliculaDialog,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
