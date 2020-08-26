@@ -4,7 +4,7 @@
     fxLayout="column"
     fxLayoutAlign="center center"
     [formGroup]="peliculaForm"
-    (ngSubmit)="onSubmit(message.value, action.value)"
+    (ngSubmit)="onSubmit()"
   >
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
@@ -53,7 +53,7 @@
   </form>
 </div>
 
-<mat-form-field>
+<!-- <mat-form-field>
   <mat-label>Message</mat-label>
   <input matInput value="Película cargada" #message />
 </mat-form-field>
@@ -61,7 +61,7 @@
 <mat-form-field>
   <mat-label>Action</mat-label>
   <input matInput value="Aceptar" #action />
-</mat-form-field>
+</mat-form-field> -->
 
 <!-- <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">
   Show snack-bar

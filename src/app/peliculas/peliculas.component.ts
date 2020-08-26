@@ -37,13 +37,9 @@ export class PeliculasComponent implements OnInit {
     });
   }
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+  openDialog() {
+    this.dialog.open(DetallePeliculaDialog);
+  }
 
   marcar(index: number) {
     this.arregloMarcado[index] = !this.arregloMarcado[index];
@@ -68,8 +64,8 @@ export class PeliculasComponent implements OnInit {
   }
 }
 
-// @Component({
-//   selector: 'app-peliculas',
-//   templateUrl: './peliculas.component.html',
-// })
-// export class DialogContentExampleDialog {}
+@Component({
+  selector: 'detalle-pelicula-dialog',
+  templateUrl: './detalle-pelicula-dialog.html',
+})
+export class DetallePeliculaDialog {}

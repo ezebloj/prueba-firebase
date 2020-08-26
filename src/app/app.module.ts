@@ -21,7 +21,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { PeliculasComponent } from './peliculas/peliculas.component';
+import {
+  PeliculasComponent,
+  DetallePeliculaDialog,
+} from './peliculas/peliculas.component';
 
 import { PeliculaService } from './services/pelicula.service';
 
@@ -50,6 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
+  entryComponents: [DetallePeliculaDialog],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
 })

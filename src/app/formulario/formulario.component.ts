@@ -30,11 +30,11 @@ export class FormularioComponent implements OnInit {
     });
   }
 
-  onSubmit(message: string, action: string) {
+  onSubmit() {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
     this.peliculaService.setPelicula(this.pelicula).then(() => {
-      this._snackBar.open(message, action, {
+      this._snackBar.open('Película cargada', 'Aceptar', {
         duration: 2000,
       });
       // alert('me guardé');
