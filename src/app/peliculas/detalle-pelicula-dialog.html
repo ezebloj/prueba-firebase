@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Información</h1>
 <div mat-dialog-content>
-  <p>Título:</p>
-  <p>Género:</p>
-  <p>Link:</p>
+  <p>Título: {{ pelicula.nombre }}</p>
+  <p>Género: {{ pelicula.genero }}</p>
+  <a [href]="pelicula.link" target="_blank">Link</a>
 </div>
-<div mat-dialog-actions>
+<div fxLayout="row" fxLayoutAlign="center center" mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
 </div>

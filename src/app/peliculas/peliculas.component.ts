@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { IPelicula } from '../Model/pelicula.model';
 import { PeliculaService } from '../services/pelicula.service';
-import { MatDialog } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogConfig,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,8 +41,15 @@ export class PeliculasComponent implements OnInit {
     });
   }
 
-  openDialog() {
-    this.dialog.open(DetallePeliculaDialog);
+  openDialog(pelicula: IPelicula) {
+    // Creamos una variable para pasarle al Dialog las configuraciones que queremos que tenga ese Dialog
+    // Una de esas configuraciones es un dato que le queramos pasar al Dialog
+    const dialogConfig = new MatDialogConfig();
+    // A través de la propiedad .data del DialogConfig le paso el dato al Dialog. En este caso, una película.
+    dialogConfig.data = pelicula;
+    // Llamamos a la función open del Dialog con el componente que se usa para este Dialog y las configuraciones correspondientes
+    this.dialog.open(DetallePeliculaDialog, dialogConfig);
+    // Una vez que se ejecuta la función open va a abrir el Dialog que está definido más abajo
   }
 
   marcar(index: number) {
@@ -68,4 +79,12 @@ export class PeliculasComponent implements OnInit {
   selector: 'detalle-pelicula-dialog',
   templateUrl: './detalle-pelicula-dialog.html',
 })
-export class DetallePeliculaDialog {}
+export class DetallePeliculaDialog {
+  // Creamos una variable 'pelicula' para guardarnos la película que viene como configuración al Dialog
+  pelicula: IPelicula;
+  // Inyectamos el MAT_DIALOG_DATA en una variable 'peli' para poder recuperar la película que me está pasando el componente que llama
+  constructor(@Inject(MAT_DIALOG_DATA) peli: IPelicula) {
+    // Guardar en la variable local pelicula el dato que viene del componente que llama
+    this.pelicula = peli;
+  }
+}
