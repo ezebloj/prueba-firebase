@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { DialogDetallePeliculaComponent } from '../dialog-detalle-pelicula/dialog-detalle-pelicula.component';
 import { FormularioComponent } from '../formulario/formulario.component';
+import { EditarPeliculaComponent } from '../editar-pelicula/editar-pelicula.component';
 
 @Component({
   selector: 'app-peliculas',
@@ -54,8 +55,10 @@ export class PeliculasComponent implements OnInit {
     // Una vez que se ejecuta la función open va a abrir el Dialog que está definido más abajo
   }
 
-  marcar(index: number) {
-    this.arregloMarcado[index] = !this.arregloMarcado[index];
+  editPelicula(pelicula: IPelicula) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = pelicula;
+    this.dialog.open(EditarPeliculaComponent, dialogConfig);
   }
 
   getPelicula(id: string) {

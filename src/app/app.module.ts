@@ -31,6 +31,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogDetallePeliculaComponent } from './dialog-detalle-pelicula/dialog-detalle-pelicula.component';
+import { EditarPeliculaComponent } from './editar-pelicula/editar-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DialogDetallePeliculaComponent } from './dialog-detalle-pelicula/dialog
     PeliculasComponent,
     FormularioComponent,
     DialogDetallePeliculaComponent,
+    EditarPeliculaComponent,
   ],
   imports: [
     BrowserModule,
