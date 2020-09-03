@@ -14,8 +14,6 @@ export class FormularioComponent implements OnInit {
 
   pelicula: IPelicula;
 
-  id: string;
-
   constructor(
     private fb: FormBuilder,
     private peliculaService: PeliculaService,
