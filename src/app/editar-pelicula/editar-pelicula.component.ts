@@ -35,12 +35,14 @@ export class EditarPeliculaComponent implements OnInit {
   onSubmit() {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
-    this.peliculaService.updatePelicula(this.pelicula).then(() => {
-      this._snackBar.open('Película cargada', 'Aceptar', {
-        duration: 2000,
+    this.peliculaService
+      .updatePelicula(this.pelicula, this.peliculaService.pelicula.id)
+      .then(() => {
+        this._snackBar.open('Película cargada', 'Aceptar', {
+          duration: 2000,
+        });
+        // alert('me guardé');
       });
-      // alert('me guardé');
-    });
   }
 
   savePelicula() {

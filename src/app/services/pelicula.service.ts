@@ -45,10 +45,10 @@ export class PeliculaService {
       .set(pelicula);
   }
 
-  updatePelicula(pelicula: IPelicula): Promise<void> {
+  updatePelicula(pelicula: IPelicula, id: string): Promise<void> {
     return this.afs
       .collection<IPelicula>('peliculas')
-      .doc<IPelicula>()
+      .doc<IPelicula>(id)
       .update(pelicula);
   }
 
