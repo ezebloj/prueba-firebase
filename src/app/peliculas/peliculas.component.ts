@@ -8,6 +8,7 @@ import {
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogDetallePeliculaComponent } from '../dialog-detalle-pelicula/dialog-detalle-pelicula.component';
+import { FormularioComponent } from '../formulario/formulario.component';
 
 @Component({
   selector: 'app-peliculas',
@@ -72,6 +73,6 @@ export class PeliculasComponent implements OnInit {
   }
 
   abrirFormulario() {
-    this.router.navigate(['formulario']);
+    this.dialog.open(FormularioComponent);
   }
 }
