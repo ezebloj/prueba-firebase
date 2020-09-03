@@ -14,24 +14,28 @@ export class EditarPeliculaComponent implements OnInit {
 
   pelicula: IPelicula;
 
+  peliculaEditar: IPelicula;
+
   constructor(
     private fb: FormBuilder,
     private peliculaService: PeliculaService,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.peliculaEditar = this.peliculaService.getPeliculaEditar();
+  }
 
   ngOnInit(): void {
     this.peliculaForm = this.fb.group({
-      nombre: ['', Validators.required],
-      genero: ['', Validators.required],
-      link: ['', Validators.required],
+      nombre: [this.peliculaEditar.nombre, Validators.required],
+      genero: [this.peliculaEditar.genero, Validators.required],
+      link: [this.peliculaEditar.link, Validators.required],
     });
   }
 
   onSubmit() {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
-    this.peliculaService.setPelicula(this.pelicula).then(() => {
+    this.peliculaService.updatePelicula(this.pelicula).then(() => {
       this._snackBar.open('Película cargada', 'Aceptar', {
         duration: 2000,
       });

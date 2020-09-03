@@ -56,6 +56,7 @@ export class PeliculasComponent implements OnInit {
   }
 
   editPelicula(pelicula: IPelicula) {
+    this.peliculaService.setPeliculaEditar(pelicula);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = pelicula;
     this.dialog.open(EditarPeliculaComponent, dialogConfig);
