@@ -42,6 +42,7 @@ export class EditarPeliculaComponent implements OnInit {
           duration: 2000,
         });
         // alert('me guardé');
+        this.peliculaForm.reset();
       });
   }
 
