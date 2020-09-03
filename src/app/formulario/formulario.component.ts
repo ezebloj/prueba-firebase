@@ -36,6 +36,7 @@ export class FormularioComponent implements OnInit {
         duration: 2000,
       });
       // alert('me guardé');
+      this.peliculaForm.reset();
     });
   }
 
