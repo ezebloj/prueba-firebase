@@ -56,7 +56,7 @@ import { DialogDetallePeliculaComponent } from './dialog-detalle-pelicula/dialog
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  entryComponents: [DialogDetallePeliculaComponent],
+  entryComponents: [DialogDetallePeliculaComponent, FormularioComponent],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
 })
