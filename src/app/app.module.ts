@@ -58,7 +58,11 @@ import { EditarPeliculaComponent } from './editar-pelicula/editar-pelicula.compo
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  entryComponents: [DialogDetallePeliculaComponent],
+  entryComponents: [
+    DialogDetallePeliculaComponent,
+    FormularioComponent,
+    EditarPeliculaComponent,
+  ],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
 })
