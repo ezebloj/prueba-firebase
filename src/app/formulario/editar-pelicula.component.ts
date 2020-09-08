@@ -6,9 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-editar-pelicula',
-  templateUrl: './editar-pelicula.component.html',
-  styleUrls: ['./editar-pelicula.component.css'],
+  selector: 'app-formulario',
+  templateUrl: './formulario.component.html',
+  styleUrls: ['./formulario.component.css'],
 })
 export class EditarPeliculaComponent implements OnInit {
   peliculaForm: FormGroup;

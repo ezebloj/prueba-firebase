@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { DialogDetallePeliculaComponent } from '../dialog-detalle-pelicula/dialog-detalle-pelicula.component';
 import { FormularioComponent } from '../formulario/formulario.component';
-import { EditarPeliculaComponent } from '../editar-pelicula/editar-pelicula.component';
+import { EditarPeliculaComponent } from '../formulario/editar-pelicula.component';
 
 @Component({
   selector: 'app-peliculas',
