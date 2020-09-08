@@ -28,6 +28,8 @@ export class EditarPeliculaComponent implements OnInit {
 
   ngOnInit(): void {
     this.peliculaForm = this.fb.group({
+      // otra opción:
+      // id: this.peliculaEditar.id,
       nombre: [this.peliculaEditar.nombre, Validators.required],
       genero: [this.peliculaEditar.genero, Validators.required],
       link: [this.peliculaEditar.link, Validators.required],
@@ -50,6 +52,8 @@ export class EditarPeliculaComponent implements OnInit {
     const pelicula = {
       // agrego el id de la película que viene de la BD (no lo saco del formulario)
       id: this.peliculaEditar.id,
+      // otra opción:
+      // id: this.peliculaForm.get('id').value,
       nombre: this.peliculaForm.get('nombre').value,
       genero: this.peliculaForm.get('genero').value,
       link: this.peliculaForm.get('link').value,
