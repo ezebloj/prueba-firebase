@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PeliculaService {
-  pelicula: IPelicula;
-
   // Me creo una variable (afs) del tipo AngularFirestore. Esta variable me va permitir utilizar todos los métodos para interactuar con mi BD
   // Todos los métodos disponibles están en la librería AngularFire
   constructor(private afs: AngularFirestore) {}
@@ -45,18 +43,10 @@ export class PeliculaService {
       .set(pelicula);
   }
 
-  updatePelicula(pelicula: IPelicula, id: string): Promise<void> {
+  updatePelicula(pelicula: IPelicula): Promise<void> {
     return this.afs
       .collection<IPelicula>('peliculas')
-      .doc<IPelicula>(id)
+      .doc<IPelicula>(pelicula.id)
       .update(pelicula);
-  }
-
-  setPeliculaEditar(peliculaEdit: IPelicula) {
-    this.pelicula = peliculaEdit;
-  }
-
-  getPeliculaEditar() {
-    return this.pelicula;
   }
 }
