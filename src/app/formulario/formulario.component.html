@@ -1,65 +1,66 @@
 <!-- fxFlexFill de Angular Flex-Layout reemplaza la clase alto-100 -->
-<div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
-  <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    [formGroup]="peliculaForm"
-    (ngSubmit)="onSubmit()"
-  >
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="nombre" />
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>Género</mat-label>
-      <mat-select formControlName="genero">
-        <mat-option value="Acción">Acción</mat-option>
-        <mat-option value="Aventura">Aventura</mat-option>
-        <mat-option value="Bélico">Bélico</mat-option>
-        <mat-option value="Chicos/Familia">Chicos/Familia</mat-option>
-        <mat-option value="Ciencia ficción">Ciencia ficción</mat-option>
-        <mat-option value="Comedia">Comedia</mat-option>
-        <mat-option value="Comedia dramática">Comedia dramática</mat-option>
-        <mat-option value="Crimen">Crimen</mat-option>
-        <mat-option value="Documental">Documental</mat-option>
-        <mat-option value="Drama">Drama</mat-option>
-        <mat-option value="Épico">Épico</mat-option>
-        <mat-option value="Espionaje">Espionaje</mat-option>
-        <mat-option value="Fantasía">Fantasía</mat-option>
-        <mat-option value="Histórico">Histórico</mat-option>
-        <mat-option value="Misterio">Misterio</mat-option>
-        <mat-option value="Musical">Musical</mat-option>
-        <mat-option value="Romance">Romance</mat-option>
-        <mat-option value="Terror">Terror</mat-option>
-        <mat-option value="Thriller">Thriller</mat-option>
-        <mat-option value="Vanguardista / Experimental"
-          >Vanguardista / Experimental</mat-option
-        >
-        <mat-option value="Western">Western</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>Link</mat-label>
-      <input matInput formControlName="link" />
-    </mat-form-field>
-    <br />
-    <div>
-      <button
-        mat-button
-        mat-dialog-close
-        type="submit"
-        [disabled]="!peliculaForm.valid"
+<!-- No se necesita el usar Flex-Layout para el dialog -->
+<!-- <div fxLayout="row" fxLayoutAlign="center center" fxFlexFill> -->
+<form
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  [formGroup]="peliculaForm"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Género</mat-label>
+    <mat-select formControlName="genero">
+      <mat-option value="Acción">Acción</mat-option>
+      <mat-option value="Aventura">Aventura</mat-option>
+      <mat-option value="Bélico">Bélico</mat-option>
+      <mat-option value="Chicos/Familia">Chicos/Familia</mat-option>
+      <mat-option value="Ciencia ficción">Ciencia ficción</mat-option>
+      <mat-option value="Comedia">Comedia</mat-option>
+      <mat-option value="Comedia dramática">Comedia dramática</mat-option>
+      <mat-option value="Crimen">Crimen</mat-option>
+      <mat-option value="Documental">Documental</mat-option>
+      <mat-option value="Drama">Drama</mat-option>
+      <mat-option value="Épico">Épico</mat-option>
+      <mat-option value="Espionaje">Espionaje</mat-option>
+      <mat-option value="Fantasía">Fantasía</mat-option>
+      <mat-option value="Histórico">Histórico</mat-option>
+      <mat-option value="Misterio">Misterio</mat-option>
+      <mat-option value="Musical">Musical</mat-option>
+      <mat-option value="Romance">Romance</mat-option>
+      <mat-option value="Terror">Terror</mat-option>
+      <mat-option value="Thriller">Thriller</mat-option>
+      <mat-option value="Vanguardista / Experimental"
+        >Vanguardista / Experimental</mat-option
       >
-        Cargar
-      </button>
-      <!-- <button mat-raised-button type="submit" [disabled]="!peliculaForm.valid">
+      <mat-option value="Western">Western</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Link</mat-label>
+    <input matInput formControlName="link" />
+  </mat-form-field>
+  <br />
+  <div>
+    <button
+      mat-button
+      mat-dialog-close
+      type="submit"
+      [disabled]="!peliculaForm.valid"
+    >
+      Cargar
+    </button>
+    <!-- <button mat-raised-button type="submit" [disabled]="!peliculaForm.valid">
         Cargar
       </button> -->
-    </div>
-  </form>
-</div>
+  </div>
+</form>
+<!-- </div> -->
 
 <!-- <mat-form-field>
   <mat-label>Message</mat-label>
