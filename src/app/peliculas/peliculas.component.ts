@@ -76,6 +76,14 @@ export class PeliculasComponent implements OnInit {
   }
 
   abrirFormulario() {
-    this.dialog.open(FormularioComponent);
+    const dialogConfig = new MatDialogConfig();
+    const peliculaVacia = {
+      id: '',
+      nombre: '',
+      genero: '',
+      link: '',
+    };
+    dialogConfig.data = peliculaVacia;
+    this.dialog.open(EditarPeliculaComponent, dialogConfig);
   }
 }

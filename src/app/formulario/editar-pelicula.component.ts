@@ -17,6 +17,9 @@ export class EditarPeliculaComponent implements OnInit {
 
   peliculaEditar: IPelicula;
 
+  // variable que me dice si estoy en modo edición o creación
+  esEdicion: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private peliculaService: PeliculaService,
@@ -24,6 +27,10 @@ export class EditarPeliculaComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) peli: IPelicula
   ) {
     this.peliculaEditar = peli;
+    // si la película tiene ID entonces estoy en modo de edición
+    if (peli.id) {
+      this.esEdicion = true;
+    }
   }
 
   ngOnInit(): void {
@@ -39,6 +46,30 @@ export class EditarPeliculaComponent implements OnInit {
   onSubmit() {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
+    if (this.esEdicion) {
+      this.update();
+    } else {
+      this.set();
+    }
+  }
+
+  savePelicula() {
+    const pelicula = {
+      id: '',
+      // otra opción:
+      // id: this.peliculaForm.get('id').value,
+      nombre: this.peliculaForm.get('nombre').value,
+      genero: this.peliculaForm.get('genero').value,
+      link: this.peliculaForm.get('link').value,
+    };
+    if (this.esEdicion) {
+      // agrego el id de la película que viene de la BD (no lo saco del formulario)
+      pelicula.id = this.peliculaEditar.id;
+    }
+    return pelicula;
+  }
+
+  update() {
     this.peliculaService.updatePelicula(this.pelicula).then(() => {
       this._snackBar.open('Película cargada', 'Aceptar', {
         duration: 2000,
@@ -48,16 +79,12 @@ export class EditarPeliculaComponent implements OnInit {
     });
   }
 
-  savePelicula() {
-    const pelicula = {
-      // agrego el id de la película que viene de la BD (no lo saco del formulario)
-      id: this.peliculaEditar.id,
-      // otra opción:
-      // id: this.peliculaForm.get('id').value,
-      nombre: this.peliculaForm.get('nombre').value,
-      genero: this.peliculaForm.get('genero').value,
-      link: this.peliculaForm.get('link').value,
-    };
-    return pelicula;
+  set() {
+    this.peliculaService.setPelicula(this.pelicula).then(() => {
+      this._snackBar.open('Película cargada', 'Aceptar', {
+        duration: 2000,
+      });
+      this.peliculaForm.reset();
+    });
   }
 }
