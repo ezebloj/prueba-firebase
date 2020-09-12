@@ -9,7 +9,6 @@ import {
 import { Router } from '@angular/router';
 import { DialogDetallePeliculaComponent } from '../dialog-detalle-pelicula/dialog-detalle-pelicula.component';
 import { FormularioComponent } from '../formulario/formulario.component';
-import { EditarPeliculaComponent } from '../formulario/editar-pelicula.component';
 
 @Component({
   selector: 'app-peliculas',
@@ -58,7 +57,7 @@ export class PeliculasComponent implements OnInit {
   editPelicula(pelicula: IPelicula) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = pelicula;
-    this.dialog.open(EditarPeliculaComponent, dialogConfig);
+    this.dialog.open(FormularioComponent, dialogConfig);
   }
 
   getPelicula(id: string) {
@@ -84,6 +83,6 @@ export class PeliculasComponent implements OnInit {
       link: '',
     };
     dialogConfig.data = peliculaVacia;
-    this.dialog.open(EditarPeliculaComponent, dialogConfig);
+    this.dialog.open(FormularioComponent, dialogConfig);
   }
 }

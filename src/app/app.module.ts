@@ -31,7 +31,6 @@ import { FormularioComponent } from './formulario/formulario.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogDetallePeliculaComponent } from './dialog-detalle-pelicula/dialog-detalle-pelicula.component';
-import { EditarPeliculaComponent } from './formulario/editar-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { EditarPeliculaComponent } from './formulario/editar-pelicula.component'
     PeliculasComponent,
     FormularioComponent,
     DialogDetallePeliculaComponent,
-    EditarPeliculaComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,11 +56,7 @@ import { EditarPeliculaComponent } from './formulario/editar-pelicula.component'
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  entryComponents: [
-    DialogDetallePeliculaComponent,
-    FormularioComponent,
-    EditarPeliculaComponent,
-  ],
+  entryComponents: [DialogDetallePeliculaComponent, FormularioComponent],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
 })
