@@ -53,7 +53,8 @@
       type="submit"
       [disabled]="!peliculaForm.valid"
     >
-      Cargar
+      <span *ngIf="esEdicion == false">Cargar</span>
+      <span *ngIf="esEdicion">Editar</span>
     </button>
     <!-- <button mat-raised-button type="submit" [disabled]="!peliculaForm.valid">
         Cargar
