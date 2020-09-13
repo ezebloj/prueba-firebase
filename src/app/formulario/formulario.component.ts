@@ -71,7 +71,7 @@ export class FormularioComponent implements OnInit {
 
   update() {
     this.peliculaService.updatePelicula(this.pelicula).then(() => {
-      this._snackBar.open('Película cargada', 'Aceptar', {
+      this._snackBar.open('Película editada', 'Aceptar', {
         duration: 2000,
       });
       // alert('me guardé');
