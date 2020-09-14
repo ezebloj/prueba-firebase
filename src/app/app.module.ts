@@ -21,10 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import {
-  PeliculasComponent,
-  DetallePeliculaDialog,
-} from './peliculas/peliculas.component';
+import { PeliculasComponent } from './peliculas/peliculas.component';
 
 import { PeliculaService } from './services/pelicula.service';
 
@@ -33,13 +30,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormularioComponent } from './formulario/formulario.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { DialogDetallePeliculaComponent } from './dialog-detalle-pelicula/dialog-detalle-pelicula.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeliculasComponent,
     FormularioComponent,
-    DetallePeliculaDialog,
+    DialogDetallePeliculaComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  entryComponents: [DetallePeliculaDialog],
+  entryComponents: [DialogDetallePeliculaComponent, FormularioComponent],
   providers: [PeliculaService],
   bootstrap: [AppComponent],
 })

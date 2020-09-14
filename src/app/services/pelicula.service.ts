@@ -42,4 +42,11 @@ export class PeliculaService {
       .doc<IPelicula>(firestoreDocumentID)
       .set(pelicula);
   }
+
+  updatePelicula(pelicula: IPelicula): Promise<void> {
+    return this.afs
+      .collection<IPelicula>('peliculas')
+      .doc<IPelicula>(pelicula.id)
+      .update(pelicula);
+  }
 }

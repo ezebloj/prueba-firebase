@@ -7,6 +7,8 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogDetallePeliculaComponent } from '../dialog-detalle-pelicula/dialog-detalle-pelicula.component';
+import { FormularioComponent } from '../formulario/formulario.component';
 
 @Component({
   selector: 'app-peliculas',
@@ -48,12 +50,14 @@ export class PeliculasComponent implements OnInit {
     // A través de la propiedad .data del DialogConfig le paso el dato al Dialog. En este caso, una película.
     dialogConfig.data = pelicula;
     // Llamamos a la función open del Dialog con el componente que se usa para este Dialog y las configuraciones correspondientes
-    this.dialog.open(DetallePeliculaDialog, dialogConfig);
+    this.dialog.open(DialogDetallePeliculaComponent, dialogConfig);
     // Una vez que se ejecuta la función open va a abrir el Dialog que está definido más abajo
   }
 
-  marcar(index: number) {
-    this.arregloMarcado[index] = !this.arregloMarcado[index];
+  editPelicula(pelicula: IPelicula) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = pelicula;
+    this.dialog.open(FormularioComponent, dialogConfig);
   }
 
   getPelicula(id: string) {
@@ -71,20 +75,14 @@ export class PeliculasComponent implements OnInit {
   }
 
   abrirFormulario() {
-    this.router.navigate(['formulario']);
-  }
-}
-
-@Component({
-  selector: 'detalle-pelicula-dialog',
-  templateUrl: './detalle-pelicula-dialog.html',
-})
-export class DetallePeliculaDialog {
-  // Creamos una variable 'pelicula' para guardarnos la película que viene como configuración al Dialog
-  pelicula: IPelicula;
-  // Inyectamos el MAT_DIALOG_DATA en una variable 'peli' para poder recuperar la película que me está pasando el componente que llama
-  constructor(@Inject(MAT_DIALOG_DATA) peli: IPelicula) {
-    // Guardar en la variable local pelicula el dato que viene del componente que llama
-    this.pelicula = peli;
+    const dialogConfig = new MatDialogConfig();
+    const peliculaVacia = {
+      id: '',
+      nombre: '',
+      genero: '',
+      link: '',
+    };
+    dialogConfig.data = peliculaVacia;
+    this.dialog.open(FormularioComponent, dialogConfig);
   }
 }
