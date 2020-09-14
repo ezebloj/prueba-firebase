@@ -15,14 +15,11 @@ export class FormularioComponent implements OnInit {
 
   pelicula: IPelicula;
 
-<<<<<<< HEAD
-=======
   peliculaEditar: IPelicula;
 
   // variable que me dice si estoy en modo edición o creación
   esEdicion: boolean = false;
 
->>>>>>> tarea-mejorada
   constructor(
     private fb: FormBuilder,
     private peliculaService: PeliculaService,
@@ -49,21 +46,11 @@ export class FormularioComponent implements OnInit {
   onSubmit() {
     // this.peliculaService.setPelicula(this.pelicula);
     this.pelicula = this.savePelicula();
-<<<<<<< HEAD
-    this.peliculaService.setPelicula(this.pelicula).then(() => {
-      this._snackBar.open('Película cargada', 'Aceptar', {
-        duration: 2000,
-      });
-      // alert('me guardé');
-      this.peliculaForm.reset();
-    });
-=======
     if (this.esEdicion) {
       this.update();
     } else {
       this.set();
     }
->>>>>>> tarea-mejorada
   }
 
   savePelicula() {
